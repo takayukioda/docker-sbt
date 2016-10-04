@@ -1,7 +1,7 @@
-FROM takayukioda/scala
+FROM takayukioda/scala:2.11.8
 MAINTAINER takayukioda <takayuki@odashi.me>
 
-ENV SBT_VERSION x.y.z
+ENV SBT_VERSION 0.13.12
 
 WORKDIR /tmp
 # Install sbt
@@ -11,7 +11,7 @@ RUN set -x \
 	&& apt-get update \
 	&& apt-get install -y sbt \
 	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 	&& sbt sbtVersion
 
 WORKDIR /root
